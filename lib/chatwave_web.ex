@@ -79,6 +79,21 @@ defmodule ChatwaveWeb do
     end
   end
 
+  def view do
+    quote do
+      use Phoenix.View,
+        root: "lib/chatwave_web/templates",
+        namespace: ChatwaveWeb
+
+      # Import convenience functions
+      import Phoenix.View
+      import ChatwaveWeb.Gettext
+
+      # Include general helpers for rendering HTML
+      unquote(html_helpers())
+    end
+  end
+
   defp html_helpers do
     quote do
       # HTML escaping functionality
